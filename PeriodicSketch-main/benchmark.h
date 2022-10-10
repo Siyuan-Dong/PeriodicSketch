@@ -9,7 +9,7 @@
 
 #include "Baseline.h"
 #include "Ours.h"
-
+#include "cmp_algo.h"
 #include "MMap.h"
 
 class BenchMark{
@@ -41,10 +41,12 @@ public:
         UnLoad(result);
     }
 
-    void TopKError(double alpha){
+    void TopKError(double alpha,const char* mem_char){
+        int mem = atoi(mem_char);
         AbsVector FPIs = {
-                new Ours<2>(100000),
-                new Baseline(100000),
+                new Ours<2>(mem),
+                new cmp_algo<2>(mem),
+                new Baseline(mem),
         };
 
         BenchInsert(FPIs);
@@ -129,6 +131,12 @@ private:
 		    << "ARE," << are << std::endl
 		    << "Recall-Rate," << cr << std::endl
 		    << "Precision-Rate," << pr << std::endl;
+
+        string res_file = sketch->NAME + ".csv";
+        ofstream fout(res_file,ios::app);
+        fout<< aae << "," << are <<
+            << "," << cr
+            << "," << pr <<","<<2.0*pr*cr/(pr+cr)<<","<< std::endl;
     }
 
 };

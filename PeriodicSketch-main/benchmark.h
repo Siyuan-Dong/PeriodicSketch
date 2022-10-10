@@ -3,7 +3,8 @@
 
 #include <sys/stat.h>
 #include <fstream>
-
+#include <iostream>
+#include <cstring>
 #include <chrono>
 #include <vector>
 
@@ -13,12 +14,12 @@
 #include "Algorithm/cmp_algo.h"
 #include "common/MMap.h"
 
-
+using namespace std;
 class BenchMark{
 public:
 
     typedef std::vector<Abstract*> AbsVector;
-
+    double mm,alpa;
     BenchMark(const char* _PATH):
             PATH(_PATH){
         result = Load(PATH);
@@ -26,7 +27,7 @@ public:
         start = (ItemPair*)result.start;
         SIZE = result.length / sizeof(ItemPair);
         TOTAL = SIZE;
-
+        cout<<"total:"<<TOTAL<<endl;
         std::unordered_map<DATA_TYPE, TIME_TYPE> last_time;
 
         for(uint32_t i = 0;i < SIZE;++i){
@@ -45,10 +46,12 @@ public:
 
     void TopKError(double alpha,const char* mem_char){
         int mem = atoi(mem_char);
+        mm = mem;
+        alpa = alpha;
         AbsVector FPIs = {
                 new Ours<2>(mem),
                 new cmp_algo<2>(mem),
-                new Baseline(mem),
+                // new Baseline(mem),
         };
 
         BenchInsert(FPIs);
@@ -134,9 +137,10 @@ private:
 		    << "Recall-Rate," << cr << std::endl
 		    << "Precision-Rate," << pr << std::endl;
 
-        string res_file = sketch->NAME + ".csv";
+        string res_file = "res/" + sketch->NAME + "_"+to_string(mm)+".csv";
         ofstream fout(res_file,ios::app);
-        fout<< aae << "," << are <<
+        // fout<< sketch->MEMORY<<","<<aae << "," << are 
+        fout<< alpa<<","<<aae << "," << are 
             << "," << cr
             << "," << pr <<","<<2.0*pr*cr/(pr+cr)<<","<< std::endl;
     }

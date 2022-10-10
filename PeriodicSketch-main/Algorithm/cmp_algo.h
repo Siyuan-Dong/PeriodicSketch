@@ -1,5 +1,5 @@
-#ifndef OURS_H
-#define OURS_H
+#ifndef CMP_H
+#define CMP_H
 
 #include "Abstract.h"
 
@@ -20,7 +20,7 @@ public:
         COUNT_TYPE fail;
     };
 
-    cmp_algo(uint32_t _MEMORY, double ratio = 0.15, std::string _name = "Ours"){
+    cmp_algo(uint32_t _MEMORY, double ratio = 0.15, std::string _name = "cmp_algo"){
         NAME = _name;
         MEMORY = _MEMORY;
 

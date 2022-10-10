@@ -7,10 +7,10 @@
 #include <chrono>
 #include <vector>
 
-#include "Baseline.h"
-#include "Ours.h"
+#include "Algorithm/Baseline.h"
+#include "Algorithm/Ours.h"
 
-#include "MMap.h"
+#include "common/MMap.h"
 
 class BenchMark{
 public:

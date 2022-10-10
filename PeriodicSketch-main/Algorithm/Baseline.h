@@ -2,7 +2,7 @@
 #define BASELINE_H
 
 #include "Abstract.h"
-#include "StreamSummary.h"
+#include "../common/StreamSummary.h"
 
 #define MAXINTER 10
 

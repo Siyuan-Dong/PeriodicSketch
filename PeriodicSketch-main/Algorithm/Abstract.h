@@ -1,8 +1,8 @@
 #ifndef ABSTRACT_H
 #define ABSTRACT_H
 
-#include "hash.h"
-#include "Util.h"
+#include "../common/hash.h"
+#include "../common/Util.h"
 
 class Abstract{
 public:

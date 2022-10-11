@@ -59,10 +59,8 @@ def main():
         # if args.k=="res_tiny":
         #     plt.plot(real_data['memory'], real_data['MAE'], label='tiny', linestyle='-', marker=None, markersize=10, alpha = 1, linewidth=2, markerfacecolor='none', markeredgewidth=2)
         # elif args.k=="tiny_dist":
-        # plt.plot(real_data1['k'][:], real_data1[i][:], label=r"cmp", linestyle='-', marker="^", markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
-        # plt.plot(real_data2['k'][:], real_data2[i][:], label=r"Ours", linestyle='-', marker="v", markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
-        plt.plot(real_data1['k'][:], real_data1[i][:], label=r"cmp", linestyle='-', marker=None, markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
-        plt.plot(real_data2['k'][:], real_data2[i][:], label=r"Ours", linestyle='-', marker=None, markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
+        plt.plot(real_data1['k'], real_data1[i], label=r"cmp", linestyle='-', marker="^", markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
+        plt.plot(real_data2['k'], real_data2[i], label=r"Ours", linestyle='-', marker="v", markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
         # plt.plot(real_data3['mem']/1000, real_data3[i], label=r"Baseline", linestyle='-', marker="o", markersize=10, alpha = 1, linewidth=3, markeredgewidth=2)
         
         

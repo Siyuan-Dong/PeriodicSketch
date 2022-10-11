@@ -114,7 +114,7 @@ private:
                 }
             }
         }
-
+        cout<<"real:"<<real<<endl;
         if(both <= 0){
             std::cout << "Not Real" << std::endl;
         }
@@ -140,7 +140,7 @@ private:
         string res_file = "res/" + sketch->NAME + "_"+to_string(mm)+".csv";
         ofstream fout(res_file,ios::app);
         // fout<< sketch->MEMORY<<","<<aae << "," << are 
-        fout<< alpa<<","<<aae << "," << are 
+        fout<< real<<","<<aae << "," << are 
             << "," << cr
             << "," << pr <<","<<2.0*pr*cr/(pr+cr)<<","<< std::endl;
     }
